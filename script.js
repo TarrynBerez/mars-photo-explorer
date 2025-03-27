@@ -1,11 +1,18 @@
 const api_key = "wEu5B7ly30CTYmvmYyIap4jtLj7cpHeKZgqdidTV"
 const imgContainer = document.getElementById("img-container")
 
+
 document.getElementById("load-photos").addEventListener("click", () => {
     const date = document.getElementById("date-input").value;
     displayMarsPhotos(date);
     imgContainer.innerHTML = "";
 })
+
+
+async function displayDefaultPhotos() {
+    const defaultDate = "2012-08-06"
+    displayMarsPhotos(defaultDate)
+}
 
 
 async function displayMarsPhotos(date) {
@@ -16,18 +23,43 @@ async function displayMarsPhotos(date) {
             throw new Error(`Error! status: ${response.status}`)
         }
         
+        // successful response
         console.log("Successful")
-
         const data = await response.json();
         imgContainer.innerHTML = "";
 
-        // Gets eat photo
-        data.photos.forEach(photo => {
+        //Gets 3 photos
+        const selectedPhotos = data.photos.slice(0, 3);
+
+        //Checks if there photos for that date
+        if (data.photos.length === 0){
+            const noPhotoMessage = document.createElement("p");
+            noPhotoMessage.textContent = `No photos for ${date}. Please enter a valid date.`;
+            imgContainer.appendChild(noPhotoMessage);
+            return;
+        }
+
+        // Gets each photo
+        selectedPhotos.forEach(photo => {
+            const { img_src, earth_date, camera } = photo;
+            const { name: cameraName } = camera;
+
+
             const img = document.createElement("img");
-            img.src = photo.img_src;
+            img.src = img_src;
             img.alt = "Mars Rover Photo";
             img.style.width = "auto";
             imgContainer.appendChild(img);
+            
+            const photoContainer = document.createElement("div");
+
+            const photoInfo = document.createElement("p");
+            photoInfo.textContent = `Photo taken on ${earth_date} with the ${cameraName} camera.`;
+            photoContainer.appendChild(photoInfo);
+
+            imgContainer.appendChild(photoContainer)
+
+
         });
 
 
@@ -41,3 +73,4 @@ async function displayMarsPhotos(date) {
     }
 }
 
+displayDefaultPhotos()
