@@ -16,7 +16,6 @@ async function displayDefaultPhotos() {
 
 
 async function displayMarsPhotos(date) {
-
     try {
         const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&api_key=wEu5B7ly30CTYmvmYyIap4jtLj7cpHeKZgqdidTV`)
         if (!response.ok){
@@ -58,8 +57,6 @@ async function displayMarsPhotos(date) {
             photoContainer.appendChild(photoInfo);
 
             imgContainer.appendChild(photoContainer)
-
-
         });
 
 
