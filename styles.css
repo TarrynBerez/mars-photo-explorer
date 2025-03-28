@@ -11,11 +11,45 @@ body {
 }
 
 
-#input-container {
+h1 {
+	font-size: 40px;
+}
+
+
+/* Containers */
+.container {
     display: flex;
     flex-direction: row;
     justify-content: center;
 	align-items: center;
+
+	width: auto; 
+	max-width: 1200px; 
+	background: rgb(192, 192, 192); 
+	padding: 20px;
+
+	padding-left:  40px;
+	padding-right: 40px;
+
+	border-radius: 10px;
+  }
+
+
+/* Inputs */
+#input-container {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+	align-items: center;
+
+	width: 50%; 
+
+	background: rgb(192, 192, 192); 
+	padding: 20px;
+
+	border-radius: 10px;
+	margin: auto;
+	margin-bottom: 40px;
 }
 
 
@@ -31,12 +65,17 @@ button {
     margin-left: 5px;
 
     align-self: center;
-    margin-bottom: 6px;
+    margin-bottom: 7.5px;
+}
+
+
+button:hover {
+	background-color: #722200;
 }
 
 
 input {
-	width: 30%;
+	width: 40%;
 	padding: 0.625em;
 	margin-top: 0.3125em;
 	margin-bottom: 0.9375em;
@@ -47,11 +86,7 @@ input {
 }
 
 
-button:hover {
-	background-color: #722200;
-}
-
-
+/* Images */
 #img-container, div {
     display: flex;
     flex-direction: column;
@@ -59,4 +94,16 @@ button:hover {
     align-content: center;
 	margin-bottom: 50px;
 	font-size: 20px;
+
+	min-width: max-content;
+	min-height: max-content;
 }
+
+
+img {
+	width: 100%; 
+	max-width: 1000px;
+	min-width: 500px;
+	height: auto; 
+	object-fit: cover; 
+  }

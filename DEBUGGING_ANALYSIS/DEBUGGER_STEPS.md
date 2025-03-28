@@ -1,5 +1,5 @@
 ## Event Listener 
-- The first breakpoint was put at the event listener. The event listener is called once the show images button is clicked. It works as expected and shos 3 photos from the selected day if the day given is valid.
+- The first breakpoint was put at the event listener. The event listener is called once the show images button is clicked. It works as expected and shows 3 photos from the selected day if the day given is valid.
 
 ## Fetch
 - The second breakpoint is when the api is getting fetched. this worked as expected as it successfully fetches the api if a valid date is given.
