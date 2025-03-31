@@ -42,20 +42,18 @@ async function displayMarsPhotos(date) {
         selectedPhotos.forEach(photo => {
             const { img_src, earth_date, camera } = photo;
             const { name: cameraName } = camera;
-
-
             const img = document.createElement("img");
+
             img.src = img_src;
             img.alt = "Mars Rover Photo";
             img.style.width = "auto";
             imgContainer.appendChild(img);
             
             const photoContainer = document.createElement("div");
-
             const photoInfo = document.createElement("p");
+
             photoInfo.textContent = `Photo taken on ${earth_date} with the ${cameraName} camera.`;
             photoContainer.appendChild(photoInfo);
-
             imgContainer.appendChild(photoContainer)
         });
 
